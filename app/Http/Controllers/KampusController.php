@@ -45,7 +45,7 @@ class KampusController extends Controller
     public function store(Request $request)
     {
         $count = Kampus::where('nama_kampus', $request->input('nama_kampus'))->count();
-        if ($count>0) {
+        if ($count > 0) {
             Session::flash('message', 'Already Exist!');
             Session::flash('message_type', 'danger');
             return redirect()->to('kampus');
@@ -59,13 +59,13 @@ class KampusController extends Controller
             'telepon'           => 'required|string|max:15',
         ]);
 
-        if($request->file('gambar') == '') {
+        if ($request->file('gambar') == '') {
             $gambar = NULL;
         } else {
             $file = $request->file('gambar');
             $dt = Carbon::now();
             $acak  = $file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak;
+            $fileName = rand(11111, 99999) . '-' . $dt->format('Y-m-d-H-i-s') . '.' . $acak;
             $request->file('gambar')->move("images/kampus", $fileName);
             $gambar = $fileName;
         }
@@ -86,7 +86,7 @@ class KampusController extends Controller
 
     public function show($id)
     {
-        if((Auth::user()->level == 'user') && (Auth::user()->id != $id)) {
+        if ((Auth::user()->level == 'user') && (Auth::user()->id != $id)) {
             Alert::info('Oopss..', 'Anda dilarang masuk!');
             return redirect()->to('/');
         }
@@ -98,13 +98,13 @@ class KampusController extends Controller
         $alamat = DB::table('kampus')->where('id', $id)->value('alamat');
 
         Mapper::map($lat, $long, ['center' => true, 'marker' => false, 'zoom' => 16, 'fullscreenControl' => false, 'cluster' => true]);
-        Mapper::informationWindow($lat, $long, 'Nama : '. $nama_kampus .'<br>'. 'Alamat : '. $alamat, ['maxWidth'=> 300, 'title' => 'Title']);
+        Mapper::informationWindow($lat, $long, 'Nama : ' . $nama_kampus . '<br>' . 'Alamat : ' . $alamat, ['maxWidth' => 300, 'title' => 'Title']);
         return view('kampus.show', compact('data'));
     }
 
     public function edit($id)
     {
-        if((Auth::user()->level == 'user') && (Auth::user()->id != $id)) {
+        if ((Auth::user()->level == 'user') && (Auth::user()->id != $id)) {
             Alert::info('Oopss..', 'Anda dilarang masuk!');
             return redirect()->to('/');
         }
@@ -118,12 +118,11 @@ class KampusController extends Controller
     {
         $data_kampus = Kampus::findOrFail($id);
 
-        if($request->file('gambar'))
-        {
+        if ($request->file('gambar')) {
             $file = $request->file('gambar');
             $dt = Carbon::now();
             $acak  = $file->getClientOriginalExtension();
-            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak;
+            $fileName = rand(11111, 99999) . '-' . $dt->format('Y-m-d-H-i-s') . '.' . $acak;
             $request->file('gambar')->move("images/kampus", $fileName);
             $data_kampus->gambar = $fileName;
         }
@@ -149,12 +148,12 @@ class KampusController extends Controller
 
     public function format()
     {
-        $data = [['nama_kampus' => null, 'alamat' => null, 'latitude' => null, 'longitude' => null, 'nomor_telepon' => null]];
-            $fileName = 'format-data-kampus';
+        $data = [['nama_kampus' => null, 'alamat' => null, 'latitude' => null, 'longitude' => null, 'telepon' => null]];
+        $fileName = 'format-data-kampus';
 
 
-        $export = Excel::create($fileName.date('Y-m-d_H-i-s'), function($excel) use($data){
-            $excel->sheet('kampus', function($sheet) use($data) {
+        $export = Excel::create($fileName . date('Y-m-d_H-i-s'), function ($excel) use ($data) {
+            $excel->sheet('kampus', function ($sheet) use ($data) {
                 $sheet->fromArray($data);
             });
         });
@@ -171,26 +170,25 @@ class KampusController extends Controller
         if ($request->hasFile('importKampus')) {
             $path = $request->file('importKampus')->getRealPath();
 
-            $data = Excel::load($path, function($reader){})->get();
+            $data = Excel::load($path, function ($reader) { })->get();
             $a = collect($data);
 
             if (!empty($a) && $a->count()) {
                 foreach ($a as $key => $value) {
                     $insert[] = [
-                            'nama_kampus' => $value->nama_kampus,
-                            'alamat' => $value->alamat,
-                            'latitude' => $value->latitude,
-                            'longitude' => $value->longitude,
-                            'telepon' => $value->telepon,
-                            'gambar' => NULL];
+                        'nama_kampus' => $value->nama_kampus,
+                        'alamat' => $value->alamat,
+                        'latitude' => $value->latitude,
+                        'longitude' => $value->longitude,
+                        'telepon' => $value->telepon,
+                        'gambar' => NULL
+                    ];
 
                     Kampus::create($insert[$key]);
-
-                    }
-
+                }
             };
         }
-        alert()->success('Berhasil.','Data telah diimport!');
+        alert()->success('Berhasil.', 'Data telah diimport!');
         return back();
     }
 }

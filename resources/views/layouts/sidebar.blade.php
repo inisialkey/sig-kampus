@@ -62,7 +62,7 @@
         <div class="collapse" id="ui-laporan">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('laporan/trs')}}">Laporan Data Kampus</a>
+                    <a class="nav-link" href="{{url('laporan/kampus')}}">Laporan Data Kampus</a>
                 </li>
             </ul>
         </div>

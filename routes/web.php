@@ -29,3 +29,7 @@ Route::resource('user', 'UserController');
 Route::resource('kampus', 'KampusController');
 Route::get('/format_kampus', 'KampusController@format');
 Route::post('/import_kampus', 'KampusController@import');
+
+Route::get('/laporan/kampus', 'LaporanController@kampus');
+Route::get('/laporan/kampus/pdf', 'LaporanController@kampusPdf');
+Route::get('/laporan/kampus/excel', 'LaporanController@kampusExcel');

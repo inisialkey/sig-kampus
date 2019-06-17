@@ -8,6 +8,6 @@ class Kampus extends Model
 {
     public $table = "kampus";
     protected $fillable = [
-        'nama_kampus', 'alamat', 'latitude', 'longitude', 'gambar', 'telepon'
+        'nama_kampus', 'alamat', 'latitude', 'longitude', 'telepon', 'gambar'
     ];
 }
