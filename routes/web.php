@@ -33,3 +33,6 @@ Route::post('/import_kampus', 'KampusController@import');
 Route::get('/laporan/kampus', 'LaporanController@kampus');
 Route::get('/laporan/kampus/pdf', 'LaporanController@kampusPdf');
 Route::get('/laporan/kampus/excel', 'LaporanController@kampusExcel');
+
+Route::get('auth/{provider}', 'Auth\SocialiteController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
