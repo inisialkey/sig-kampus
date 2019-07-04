@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use FarhanWazir\GoogleMaps\GMaps;
 use App\Kampus;
+use App\User;
 use Carbon\Carbon;
 use Session;
 use Auth;
@@ -144,6 +146,34 @@ class KampusController extends Controller
         Kampus::find($id)->delete();
         alert()->success('Berhasil', 'Data telah dihapus!');
         return redirect()->route('kampus.index');
+    }
+
+    //UNTUK DIRECTION
+    public function direction($id)
+    {
+        $kampus = Kampus::all();
+        $user = User::all();
+        $kampus = DB::table('kampus')->where('id', '=', $id)->get();
+        foreach ($kampus as $kampus) {
+            $config['center'] = 'auto';
+            $config['zoom'] = 'auto';
+            $config['directions'] = TRUE;
+            $config['directionsStart'] = 'auto';
+            $config['directionsEnd'] = $kampus->latitude . ', ' . $kampus->longitude;
+            $config['directionsDivID'] = 'directionsDiv';
+
+            $circle = array();
+            $circle['center'] = $kampus->latitude . ', ' . $kampus->longitude;
+            $circle['radius'] = '25';
+            $gmap = new GMaps();
+            $gmap->add_circle($circle);
+        }
+
+        $gmap->initialize($config);
+
+        $map = $gmap->create_map();
+
+        return view('kampus.direction', compact('map', 'user', 'kampus'));
     }
 
     public function format()

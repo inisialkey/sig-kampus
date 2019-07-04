@@ -16,8 +16,10 @@
 // });
 
 Auth::routes();
-Route::get('/frontend', 'HomeController@index')->name('frontend/home');
+Route::get('/frontend', 'FrontendController@index')->name('frontend/home');
+Route::get('/frontend/about', 'FrontendController@about')->name('frontend/about');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/deteksi-lokasi', 'HomeController@geolocation')->name('deteksi-lokasi');
 Route::get('/', 'HomeController@index');
 /*
 Route::get('/user', 'UserController@index');
@@ -27,6 +29,7 @@ Route::get('/user-edit/{id}', 'UserController@edit');
 */
 Route::resource('user', 'UserController');
 Route::resource('kampus', 'KampusController');
+Route::get('/kampus/direction/{id}', array('as' => 'kampus.direction', 'uses' => 'KampusController@direction'));
 Route::get('/format_kampus', 'KampusController@format');
 Route::post('/import_kampus', 'KampusController@import');
 

@@ -109,7 +109,7 @@
                                 <div class="form-group">
                                     <label for="gambar" class="col-md-4 control-label">Foto Kampus</label>
                                     <div class="col-md-6">
-                                        <img width="200" height="200" @if($data->gambar)
+                                        <img width="400" @if($data->gambar)
                                         src="{{ asset('images/kampus/'.$data->gambar) }}" @endif />
                                         <input type="file" class="uploads form-control" style="margin-top: 20px;"
                                             name="gambar">

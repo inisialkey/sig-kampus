@@ -165,6 +165,8 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        FarhanWazir\GoogleMaps\GMapsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,6 +235,8 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'GMaps' => FarhanWazir\GoogleMaps\Facades\GMapsFacade::class,
     ],
 
 ];

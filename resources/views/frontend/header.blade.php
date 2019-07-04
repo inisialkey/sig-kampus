@@ -3,7 +3,7 @@
     <div class="container">
         <!-- HEADER LOGO -->
         <div class="header_logo">
-            <a href="#"><img src="#" alt="LOGO"></a>
+            <a href="#"><img src="#" alt=""></a>
         </div>
         <!-- END / HEADER LOGO -->
 
@@ -11,9 +11,9 @@
         <nav class="header_menu">
             <ul class="menu">
                 <li><a href="#">Home</a></li>
-                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Rooms & Suite</a></li>
-                <li><a href="#">facilities & services</a></li>
+                 <li><a href="#">Data Kampus</a></li>
+                <li><a href="#">Peta Kampus</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </nav>
         <!-- END / HEADER MENU -->

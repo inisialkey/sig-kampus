@@ -1,11 +1,11 @@
 <footer id="footer">
 
-    <!-- FOOTER BOTTOM -->
-    <div class="footer_bottom">
-        <div class="container">
-            <p>&copy; {{date('Y')}} SIGKAMPUS All rights reserved | Developed By <a href="#" style="color: #fff;">TEAM 1 SIG</a> </p>
+        <!-- FOOTER BOTTOM -->
+        <div class="footer_bottom">
+            <div class="container">
+                <p>&copy; SIGKampus All rights reserved | Developed By <a href="#" target="_blank" style="color: #fff;">Oki Dorvel</a> </p>
+            </div>
         </div>
-    </div>
-    <!-- END / FOOTER BOTTOM -->
+        <!-- END / FOOTER BOTTOM -->
 
-</footer>
+    </footer>

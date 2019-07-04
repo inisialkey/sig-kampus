@@ -6,8 +6,9 @@
         });
 
     });
-
 </script>
+<script type="text/javascript">var centreGot = false;</script>
+    {!!$map['js']!!}
 @stop
 @extends('layouts.app')
 
@@ -100,8 +101,8 @@
 
             <div class="card-body">
                 <h4 class="card-title">Lokasi Perguruan Tinggi</h4>
-                <div class="content" style="height:600px;">
-                    {!! Mapper::render() !!}
+                <div class="content" style="height:100%;">
+                    {!!$map['html']!!}
                 </div>
             </div>
         </div>

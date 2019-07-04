@@ -116,6 +116,8 @@
                                         </button>
                                         <div class="dropdown-menu" x-placement="bottom-start"
                                             style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+                                            <a class="dropdown-item" href="{{route('kampus.direction', $data->id)}}"> Cek Rute
+                                            </a>
                                             <a class="dropdown-item" href="{{route('kampus.edit', $data->id)}}"> Edit
                                             </a>
                                             <form action="{{ route('kampus.destroy', $data->id) }}" class="pull-left"

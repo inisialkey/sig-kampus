@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mapper;
+use FarhanWazir\GoogleMaps\GMaps;
+use GoogleMaps;
 use App\Kampus;
 use App\User;
 
@@ -27,28 +29,63 @@ class HomeController extends Controller
     public function index()
     {
         $kampus = Kampus::get();
-        $user   = User::get();
+        $user   = User::all();
 
-        Mapper::map(-6.7427761, 108.5190192, ['center' => true, 'marker' => false, 'zoom' => 13, 'fullscreenControl' => false, 'cluster' => true]);
-        Mapper::informationWindow(-6.728889, 108.545723, 'UNSWAGATI', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.736021, 108.535179, 'UNTAG', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.709861, 108.536623, 'UMC', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.713407, 108.566586, 'UNU', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.716678, 108.533660, 'STIBA', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.736587, 108.529376, 'FARMASI YPIB', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(6.719445, 108.537576, 'STIKES', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.741599, 108.534587, 'STIKES MAHARDIKA', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.712690, 108.531209, 'STIKOM', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.712852, 108.532191, 'STIE', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.740573, 108.543303, 'STTC', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.712433, 108.539870, 'STIE YASMI', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.733730, 108.553111, 'CIC', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.736525, 108.527098, 'IKMI', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.747798, 108.481286, 'AN NASHER', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.712453, 108.540766, 'AKPER MUHAMMADIYAH', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.737857, 108.554936, 'AKMI', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.709500, 108.531396, 'LP3I', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        Mapper::informationWindow(-6.713233, 108.543793, 'BBC', ['maxWidth'=> 300, 'title' => 'Title', 'marker' => true]);
-        return view('home', compact('kampus', 'user'));
+        $no = 1;
+        $kampuslist = $kampus->sortBy('id');
+        $config['center'] = '-6.737246, 108.550659';
+        $config['zoom'] = 'auto';
+        $gmap = new GMaps();
+        $gmap->initialize($config);
+
+        foreach ($kampus as $key => $kampus) {
+            $marker = array();
+            $marker['position'] = $kampus->latitude . ', ' . $kampus->longitude;
+            $marker['draggable'] = TRUE;
+            $marker['infowindow_content'] = '<strong>' . '<b>Nama Kampus : </b>' . $kampus->nama_kampus . '<br>' . '<b>Alamat : </b>' . $kampus->alamat . '<br>' . '<b>Telepon : </b>' . $kampus->telepon . '</strong>';
+            $marker['animation'] = 'BOUNCE';
+            $gmap->add_marker($marker);
+
+            // $circle = array();
+            // $circle['center'] = $kampus->latitude . ', ' . $kampus->longitude;
+            // $circle['radius'] = '25';
+            // $gmap->add_circle($circle);
+        }
+
+        $map = $gmap->create_map();
+
+        return view('home', compact('map', 'kampus', 'user', 'kampuslist'));
+    }
+
+    //DETEKSI LOKASI
+    public function geolocation()
+    {
+        $kampus = Kampus::all();
+        $user = User::all();
+        $config = array();
+        $config['center'] = 'auto';
+        $config['zoom'] = 16;
+        $config['onboundschanged'] = 'if (!centreGot) {
+			var mapCentre = map.getCenter();
+			marker_0.setOptions({
+				position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
+			});
+		}
+        centreGot = true;';
+        $gmap = new GMaps();
+        $gmap->initialize($config);
+
+        $marker = array();
+        $marker['animation'] = 'BOUNCE';
+        $gmap->add_marker($marker);
+
+        $circle = array();
+        $circle['center'] = 'auto';
+        $circle['radius'] = '25';
+        $gmap->add_circle($circle);
+
+        $map = $gmap->create_map();
+
+        return view('geolocation', compact('map', 'kampus', 'user'));
     }
 }

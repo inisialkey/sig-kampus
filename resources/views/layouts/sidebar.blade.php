@@ -28,6 +28,12 @@
             <span class="menu-title">Dashboard</span>
         </a>
     </li>
+    <li class="nav-item {{ setActive(['/', 'deteksi-lokasi']) }}">
+        <a class="nav-link" href="{{url('/deteksi-lokasi')}}">
+            <i class="menu-icon mdi mdi-television"></i>
+            <span class="menu-title">Deteksi Lokasi</span>
+        </a>
+    </li>
     @if(Auth::user()->level == 'admin')
     <li class="nav-item {{ setActive(['anggota*', 'buku*', 'user*']) }}">
         <a class="nav-link " data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

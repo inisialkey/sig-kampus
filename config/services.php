@@ -55,4 +55,10 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => env('GITHUB_CLIENT_REDIRECT')
     ],
+
+    'google' => [
+        'maps' => [
+            'api-key' => env('GOOGLE_MAPS_API_KEY'),
+        ],
+    ],
 ];
