@@ -82,10 +82,10 @@
                         <!-- HEADER MENU -->
                         <nav class="header_menu">
                             <ul class="menu">
-                                <li><a href="{{ url('frontend/')}}">Home</a></li>
-                                <li><a href="#">Data Kampus</a></li>
-                                <li><a href="#">Peta Kampus</a></li>
-                                <li><a href="about">About</a></li>
+                                <li><a href="{{url('frontend/')}}">Home</a></li>
+                                <li><a href="{{url('frontend/about')}}">About</a></li>
+                                <li><a href="{{url('frontend/contact')}}">Contact</a></li>
+                                <li><a href="#">Login</a></li>
                             </ul>
                         </nav>
                         <!-- END / HEADER MENU -->
@@ -133,18 +133,10 @@
                             <div class="text">
                                 <h2 class="heading"> About</h2>
                                 <div class="desc">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dignissimos
-                                        debitis fugiat corrupti quis facere vitae dolor ex dolorum voluptas corporis
-                                        reiciendis quaerat ipsa perspiciatis velit, maiores voluptatibus eligendi?
-                                        Pariatur.
-                                    </p> <br>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
-                                        perspiciatis sunt esse aperiam enim explicabo vel cumque quibusdam eligendi
-                                        voluptatem qui quis quod, aliquid porro facere ab. Ducimus, dolorem amet?
-                                    </p>
+                                    <p>Pemetaan Perguruan Tinggi merupakan faktor penting dari proses perencanaan pendidikan secara keseluruhan karena sifatnya tidak statis melainkan dinamis mengikuti perkembangan pendidikan yang sedang berlangsung. Dengan adanya pemetaan Perguruan Tinggi, kumpulan informasi tertata dengan baik dan dapat dengan mudah diakses kembali untuk keperluan lain, misalnya untuk kebutuhan informasi akses ke lokasi perguruan tinggi tersebut atau melihat daftar perguruan tinggi yang ada di cirebon.
+                                    </p> <br><br><br><br><br><br><br>
                                 </div>
                             </div>
-
                         </div>
                         <!-- END / ITEM -->
 

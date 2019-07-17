@@ -18,6 +18,7 @@
 Auth::routes();
 Route::get('/frontend', 'FrontendController@index')->name('frontend/home');
 Route::get('/frontend/about', 'FrontendController@about')->name('frontend/about');
+Route::get('/frontend/contact', 'FrontendController@contact')->name('frontend/contact');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/deteksi-lokasi', 'HomeController@geolocation')->name('deteksi-lokasi');
 Route::get('/', 'HomeController@index');

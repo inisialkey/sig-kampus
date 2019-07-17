@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <!-- TITLE -->
-    <title>Welcome to SIGKampus</title>
+    <title>Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="#" />
 
-    <!-- META FOR IOS & HANDHELD -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="apple-mobile-web-app-capable" content="YES" />
-    <!-- //META FOR IOS & HANDHELD -->
+	<!-- META FOR IOS & HANDHELD -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="apple-mobile-web-app-capable" content="YES" />
+	<!-- //META FOR IOS & HANDHELD -->
 
     <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' rel='stylesheet'
-        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' rel='stylesheet' type='text/css'>
+
 
     <!-- CSS LIBRARY -->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/css/lib/font-awesome.min.css') }}">
@@ -35,13 +33,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/css/responsive.css') }}">
 
     <!-- MAIN STYLE -->
-    <link rel="stylesheet" type="text/css" href="{{ ('theme/css/style.css') }}">
-    <script type="text/javascript">var centreGot = false;</script>
-    {!!$map['js']!!}
+    <link rel="stylesheet" type="text/css" href="{{ asset('theme/css/style.css') }}">
 
 </head>
 
 <body>
+
 
     <!-- PRELOADER -->
     <div id="preloader">
@@ -95,117 +92,74 @@
 
                 </div>
             </div>
-            <!-- END / HEADER LOGO & MENU -->
+			<!-- END / HEADER LOGO & MENU -->
 
         </header>
         <!-- END / HEADER -->
 
-        <!-- BANNER SLIDER -->
-        <section class="section-slider">
-            <h1 class="element-invisible">Slider</h1>
-            <div id="slider-revolution">
-                <ul>
-                   {{-- foreach --}}
-                    <li data-transition="fade">
-                        <img src="images/itb.jpg" data-bgposition="left center"
-                            data-duration="14000" data-bgpositionend="right center" alt="">
-
-                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center"
-                            data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        </div>
-
-                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center"
-                            data-y="240" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                            {{-- Caption 1 --}}
-                            <h1 color="white">Welcome to SIGKampus</h1>
-                        </div>
-
-                        <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                            data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">
-                            <h3>Sistem Informasi Berbasis Web Untuk Pemetaan Lokasi Kampus</h3>
-                        </div>
-                    </li>
-                    {{-- EndForeach --}}
-
-                    <li data-transition="fade">
-                        <img src="images/stikom1.jpg" data-bgposition="left center"
-                            data-duration="14000" data-bgpositionend="right center" alt="">
-
-                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center"
-                            data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        </div>
-
-                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center"
-                            data-y="240" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                            {{-- Caption 1 --}}
-                            <h1 color="white">Welcome to SIGKampus</h1>
-                        </div>
-
-
-                        <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                            data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">
-                            <h3>Sistem Informasi Berbasis Web Untuk Pemetaan Lokasi Kampus</h3>
-                        </div>
-                    </li>
-                    {{-- EndForeach --}}
-
-                </ul>
-            </div>
-
-        </section>
-        <!-- END / BANNER SLIDER -->
-
-        <!-- CHECK AVAILABILITY -->
-        <section class="section-check-availability">
-            <div class="container">
-                <div class="check-availability">
-                    <div class="row v-align">
-                        <div class="col-lg-3">
-                            <h2>DATA KAMPUS</h2>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="availability-form">
-                                <div class="vailability-submit">
-                                    <a href="{{url('frontend/peta')}}" class="awe-btn awe-btn-13">PETA KAMPUS</a>
-                                </div>
-                            </div>
-                        </div>
+        <!--BANNER -->
+        <section class="section-sub-banner bg-9">
+            <div></div>
+            <div class="sub-banner">
+                <div class="container">
+                    <div class="text text-center">
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- END / CHECK AVAILABILITY -->
 
-         <!-- ROOM DETAIL -->
-         <section class="section-room-detail bg-white">
+            </div>
+
+        </section>
+        <!-- END BANNER -->
+
+        <!-- CONTACT -->
+        <section class="section-contact">
             <div class="container">
-				<!-- COMPARE ACCOMMODATION -->
-                <div class="room-detail_compare">
+                <div class="contact">
                     <div class="row">
-                    <div class="col col-xs-12 col-lg-6 col-lg-offset-3">
-                        <div class="ot-heading row-20 mb30 text-center">
-                            <h2 class="shortcode-heading">PETA KAMPUS</h2>
-                        </div>
-                    </div>
-                </div>
+                        <div class="col-md-6 col-lg-5">
 
-                    <div class="room-compare_content">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="room-compare_item">
-                                    {!!$map['html']!!}
-                                </div>
+                            <div class="text">
+                                <h2>Contact</h2>
+                                <p>Untuk informasi lebih lanjut mengenai website Sistem Informasi Geografis untuk pemetaan Perguruan Tinggi yang ada di Cirebon bisa menghubungi kami melalui : </p>
+                                <ul>
+                                    <li><i class="icon lotus-icon-location"></i>Ds.Marikange Blok Kajen Kidul Kec.Plumbon Kab.Cirebon</li>
+                                    <li><i class="icon lotus-icon-phone"></i>0895372298625</li>
+                                    <li><i class="icon fa fa-envelope-o"></i>okidorvel404@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-lg-offset-1">
+                            <div class="contact-form">
+                                <form action="#" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="field-text"  name="name" placeholder="Name" required>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="field-text" name="email" placeholder="Email" required>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="field-text" name="subject" placeholder="Subject" required>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <textarea cols="30" rows="10" name="message"  class="field-textarea" placeholder="Write you message" required></textarea>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="submit" class="awe-btn awe-btn-14">SEND</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                <!-- END / COMPARE ACCOMMODATION -->
+                </div>
             </div>
         </section>
-        <!-- END / SHOP DETAIL -->
+        <!-- END / CONTACT -->
 
         <!-- FOOTER -->
         <footer id="footer">
-
             <!-- FOOTER BOTTOM -->
             <div class="footer_bottom">
                 <div class="container">
@@ -213,16 +167,12 @@
                 </div>
             </div>
             <!-- END / FOOTER BOTTOM -->
-
         </footer>
-
         <!-- END / FOOTER -->
 
     </div>
     <!-- END / PAGE WRAP -->
 
-
-    <!-- LOAD JQUERY -->
     <script type="text/javascript" src="{{ asset('theme/js/lib/jquery-1.11.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/js/lib/jquery-ui.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/js/lib/bootstrap.min.js') }}"></script>
@@ -236,7 +186,9 @@
     <script type="text/javascript" src="{{ asset('theme/js/lib/jquery.countdown.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/js/lib/jquery.parallax-1.1.3.js') }}"></script>
     <script type="text/javascript" src="{{ asset('theme/js/lib/jquery.magnific-popup.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('theme/js/lib/jquery.form.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('theme/js/lib/jquery.validate.min.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('theme/js/scripts.js') }}"></script>
 </body>
-
 </html>
