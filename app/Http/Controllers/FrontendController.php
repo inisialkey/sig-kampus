@@ -27,7 +27,8 @@ class FrontendController extends Controller
             $marker = array();
             $marker['position'] = $kampus->latitude . ', ' . $kampus->longitude;
             $marker['draggable'] = TRUE;
-            $marker['infowindow_content'] = '<strong>' . '<b>Nama Kampus : </b>' . $kampus->nama_kampus . '<br>' . '<b>Alamat : </b>' . $kampus->alamat . '<br>' . '<b>Telepon : </b>' . $kampus->telepon . '</strong>';
+            $marker['infowindow_content'] =  "<img src='images/kampus/$kampus->gambar' width='120px' height='75px'>" . "<br> <br>" . "<strong>" . "<b>Nama Kampus : </b>" . $kampus->nama_kampus . "<br>" . "<b>Alamat : </b>" . $kampus->alamat . "<br>" . "<b>Telepon : </b>" . $kampus->telepon . "</strong>";
+            $marker['icon'] = 'images/lokasi.png';
             $marker['animation'] = 'BOUNCE';
             $gmap->add_marker($marker);
 

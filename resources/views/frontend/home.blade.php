@@ -72,7 +72,7 @@
                 <div class="container">
                     <!-- HEADER LOGO -->
                     <div class="header_logo">
-                        <a href="#"><img src="#" alt=""></a>
+                        {{-- <a href="#"><img src="" alt="tets"></a> --}}
                     </div>
                     <!-- END / HEADER LOGO -->
 
@@ -122,7 +122,7 @@
 
                         <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
                             data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">
-                            <h3>Sistem Informasi Berbasis Web Untuk Pemetaan Lokasi Kampus</h3>
+                            <h3 color="#ffffff">Sistem Informasi Berbasis Web Untuk Pemetaan Lokasi Kampus</h3>
                         </div>
                     </li>
                     {{-- EndForeach --}}

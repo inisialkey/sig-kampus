@@ -49,7 +49,7 @@
                                         class="font-size-xl text-success">KAMPUS</span>
                                 </a>
 
-                                <h1 class="h3 font-w700 mt-30 mb-10">Sign In to Your Dashboard</h1>
+                                <h1 class="h3 font-w700 mt-30 mb-10">Sign In to SIG KAMPUS</h1>
                                 <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2>
                             </div>
                             <!-- END Header -->
@@ -89,7 +89,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-sm btn-hero btn-alt-primary">
-                                        <i class="si si-login mr-10"></i> Sign In
+                                        <i class="si si-login mr-10"></i> Login
                                     </button>
                                 </div>
 
@@ -97,19 +97,16 @@
                                     <div class="col-md-12">
                                         <a href="{{ url('/auth/facebook')}}" class="btn btn-facebook">
                                             <i class="fa fa-facebook">
-                                                Sign in with Facebook
+                                            Login with Facebook
                                             </i>
                                         </a>
-
                                         <a href="{{ url('/auth/github')}}" class="btn btn-github">
                                             <i class="fa fa-github">
-                                                Sign in with Github
+                                                Login with Github
                                             </i>
                                         </a>
                                     </div>
                                 </div>
-
-
                             </form>
                             <!-- END Sign In Form -->
                         </div>

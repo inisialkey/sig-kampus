@@ -75,7 +75,7 @@
                     <div class="container">
                         <!-- HEADER LOGO -->
                         <div class="header_logo">
-                            <a href="#"><img src="#" alt=""></a>
+                            <a href="#"><img src="sigkampus.jpg" alt=""></a>
                         </div>
                         <!-- END / HEADER LOGO -->
 
